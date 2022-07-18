@@ -3,4 +3,4 @@ Extension for [Ulauncher](https://ulauncher.io/). Search for PHP documentation f
 
 # Installation
 1. Install [Ulauncher](https://ulauncher.io/#Download). 
-2. Just add `https://github.com/VladChekunov/ulauncher-php-doc` at **Extensions** section.
+2. Just add `https://github.com/VladChekunov/ulauncher-php-doc` at Extensions section.
