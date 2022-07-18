@@ -1,0 +1,7 @@
+{
+    "required_api_version": "^2.0.0",
+    "name": "PHP Docs",
+    "description": "PHP Documentation extension",
+    "developer_name": "Vlad Chekunov",
+    "icon": "images/icon.png"
+}
