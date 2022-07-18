@@ -3,5 +3,66 @@
     "name": "PHP Docs",
     "description": "PHP Documentation extension",
     "developer_name": "Vlad Chekunov",
-    "icon": "images/icon.png"
+    "icon": "images/icon.png",
+    "preferences": [
+        {
+            "id": "php_kw",
+            "type": "keyword",
+            "name": "Keyword",
+            "description": "PHP Documentation keyword",
+            "default_value": "php"
+        },
+        {
+            "id": "php_lang",
+            "type": "select",
+            "name": "Language",
+            "options": [
+                {
+                    "value": "en",
+                    "text": "English"
+                },
+                {
+                    "value": "pt_BR",
+                    "text": "Brazilian Portuguese"
+                },
+                {
+                    "value": "zh",
+                    "text": "Chinese (Simplified)"
+                },
+                {
+                    "value": "fr",
+                    "text": "French"
+                },
+                {
+                    "value": "de",
+                    "text": "German"
+                },
+                {
+                    "value": "ja",
+                    "text": "Japanese"
+                },
+                {
+                    "value": "ru",
+                    "text": "Russian"
+                },
+                {
+                    "value": "es",
+                    "text": "Spanish"
+                },
+                {
+                    "value": "tr",
+                    "text": "Turkish"
+                }
+            ],
+            "description": "PHP.net language",
+            "default_value": "en"
+        },
+        {
+            "id": "php_update_delay",
+            "type": "input",
+            "name": "Index update delay",
+            "description": "Delay to update search index at php.net in minutes",
+            "default_value": "60"
+        }
+    ]
 }
