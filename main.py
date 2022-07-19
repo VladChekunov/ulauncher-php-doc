@@ -42,7 +42,7 @@ class KeywordQueryEventListener(EventListener):
             title = search_index[page_index][0]
             snippet = search_index[page_index][1]
 
-            if query_string in title or query_string in snippet:
+            if query_string.lower() in title.lower() or query_string.lower() in snippet.lower():
                 results_count += 1
                 # TODO: Bind language to url
                 items.append(
