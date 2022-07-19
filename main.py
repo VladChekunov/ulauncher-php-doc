@@ -1,6 +1,6 @@
 from ulauncher.api.client.Extension import Extension
 from ulauncher.api.client.EventListener import EventListener
-from ulauncher.api.shared.event import KeywordQueryEvent
+from ulauncher.api.shared.event import KeywordQueryEvent, PreferencesEvent
 from ulauncher.api.shared.item.ExtensionResultItem import ExtensionResultItem
 from ulauncher.api.shared.action.RenderResultListAction import RenderResultListAction
 from ulauncher.api.shared.action.OpenUrlAction import OpenUrlAction
@@ -16,16 +16,7 @@ class PhpDocsExtension(Extension):
     def __init__(self):
         super().__init__()
         self.subscribe(KeywordQueryEvent, KeywordQueryEventListener())
-        self.getSearchIndex()
-
-    def getSearchIndex(self):
-        # TODO: Bind language to search index request
-        # TODO: Bind delay
-        global search_index
-
-        response = requests.get(
-            "https://www.php.net/js/search-index.php?lang=en")
-        search_index = response.json()
+        self.subscribe(PreferencesEvent, PreferencesEventListener())
 
 
 class KeywordQueryEventListener(EventListener):
@@ -44,20 +35,29 @@ class KeywordQueryEventListener(EventListener):
 
             if query_string.lower() in title.lower() or query_string.lower() in snippet.lower():
                 results_count += 1
-                # TODO: Bind language to url
                 items.append(
                     ExtensionResultItem(
                         icon='images/icon.png',
                         name=title,
                         description=snippet,
                         on_enter=OpenUrlAction(
-                            "https://www.php.net/manual/en/"+page_index
+                            "https://www.php.net/manual/" + extension.preferences['php_lang'] + "/" + page_index
                         )
                     )
                 )
 
         return RenderResultListAction(items)
 
+
+class PreferencesEventListener(EventListener):
+
+    def on_event(self, event, extension):
+        global search_index
+
+        response = requests.get(
+            "https://www.php.net/js/search-index.php?lang=" + event.preferences['php_lang']
+        )
+        search_index = response.json()
 
 if __name__ == '__main__':
     PhpDocsExtension().run()
