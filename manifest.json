@@ -56,13 +56,6 @@
             ],
             "description": "PHP.net language",
             "default_value": "en"
-        },
-        {
-            "id": "php_update_delay",
-            "type": "input",
-            "name": "Index update delay",
-            "description": "Delay to update search index at php.net in minutes",
-            "default_value": "60"
         }
     ]
 }
