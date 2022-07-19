@@ -8,7 +8,7 @@
         {
             "id": "php_kw",
             "type": "keyword",
-            "name": "Keyword",
+            "name": "PHP Docs search",
             "description": "PHP Documentation keyword",
             "default_value": "php"
         },
