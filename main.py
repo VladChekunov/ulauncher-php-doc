@@ -27,7 +27,7 @@ class KeywordQueryEventListener(EventListener):
         query_string = event.get_argument()
 
         for page_index in search_index:
-            if results_count == 5:
+            if results_count >= 200:
                 break
 
             title = search_index[page_index][0]
